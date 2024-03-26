@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../helper';
+
 
 const BulkUploadForm = () => {
   const [file, setFile] = useState(null);
@@ -14,7 +16,7 @@ const BulkUploadForm = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/dns/bulk-upload', formData, {
+      await axios.post(`${BASE_URL}/api/dns/bulk-upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `${token}`,

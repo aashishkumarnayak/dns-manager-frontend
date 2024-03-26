@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 import axios from 'axios';
+import { BASE_URL } from '../../helper';
+
 
 const DomainDistributionChart = () => {
   const [chartData, setChartData] = useState([]);
@@ -9,7 +11,7 @@ const DomainDistributionChart = () => {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/dns/domain-distribution', {
+        const response = await axios.get(`${BASE_URL}/api/dns/domain-distribution`, {
           headers: { Authorization: `${token}` },
         });
 

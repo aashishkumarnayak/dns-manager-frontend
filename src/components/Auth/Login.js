@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {BASE_URL} from '../../helper.js';
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -15,7 +16,7 @@ const Login = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const response = await axios.post(`${BASE_URL}/api/auth/login`, formData);
       // Handle successful login, e.g., store token in local storage
       localStorage.setItem('token', response.data.token);
       console.log('Logged in successfully', response.data);

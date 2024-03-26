@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { PencilIcon, TrashIcon } from "@heroicons/react/outline";
+import { BASE_URL } from "../../helper";
 
 const DNSManager = () => {
   const [records, setRecords] = useState([]);
@@ -30,7 +31,7 @@ const DNSManager = () => {
       try {
         const token = getToken();
         const userId = getUserId(); // Get user ID from localStorage
-        const response = await axios.get("http://localhost:5000/api/dns", {
+        const response = await axios.get(`${BASE_URL}/api/dns`, {
           headers: { Authorization: `${token}` },
           params: {
             domain: filters.domain,
@@ -58,7 +59,7 @@ const DNSManager = () => {
       if (isEditing) {
         // Update existing record
         await axios.put(
-          `http://localhost:5000/api/dns/${recordIdToEdit}`,
+          `${BASE_URL}/api/dns/${recordIdToEdit}`,
           { ...formData, userId },
           {
             headers: { Authorization: `${token}` },
@@ -74,7 +75,7 @@ const DNSManager = () => {
       } else {
         // Add new record
         const response = await axios.post(
-          "http://localhost:5000/api/dns",
+          `${BASE_URL}/api/dns`,
           { ...formData, userId },
           {
             headers: { Authorization: `${token}` },
@@ -98,7 +99,7 @@ const DNSManager = () => {
   const handleDelete = async (id) => {
     try {
       const token = getToken();
-      await axios.delete(`http://localhost:5000/api/dns/${id}`, {
+      await axios.delete(`${BASE_URL}/api/dns/${id}`, {
         headers: { Authorization: `${token}` },
       });
       setRecords(records.filter((record) => record._id !== id));

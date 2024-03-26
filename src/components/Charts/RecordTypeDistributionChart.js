@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 import axios from 'axios';
+import { BASE_URL } from '../../helper';
 
 const RecordTypeDistributionChart = () => {
   const [chartData, setChartData] = useState([]);
@@ -9,7 +10,7 @@ const RecordTypeDistributionChart = () => {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/dns/record-type-distribution', {
+        const response = await axios.get(`${BASE_URL}/api/dns/record-type-distribution`, {
           headers: { Authorization: `${token}` },
         });
 
