@@ -35,7 +35,7 @@ const BulkUploadForm = () => {
     <div className="flex justify-center mt-8">
       <div className="bg-white rounded-lg p-4 shadow-md">
         <div className="text-center mb-4">
-          <p className="text-gray-700">Upload CSV/JSON file for bulk upload</p>
+          <p className="text-gray-700">Upload CSV file for bulk upload</p>
         </div>
         <div className="mb-4">
           <label htmlFor="fileInput" className="block text-center text-blue-500 cursor-pointer">
