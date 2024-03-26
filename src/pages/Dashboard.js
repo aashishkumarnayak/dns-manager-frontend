@@ -26,26 +26,26 @@ const Dashboard = () => {
         </button>
       </div>
 
-      <div className="flex flex-grow">
-        {/* DNS Record Form (50% width) */}
-        <div className="w-1/2 px-4">
+      <div className="flex flex-grow flex-wrap">
+        {/* DNS Record Form (Full width on mobile, 50% width on larger screens) */}
+        <div className="w-full sm:w-1/2 px-4 overflow-x-auto" >
           <DNSRecordForm />
         </div>
 
-        {/* Charts and Bulk Upload (50% width) */}
-        <div className="w- 1/2 px-4 flex flex-col">
-          {/* Charts (75% height) */}
-          <div className="flex flex-grow">
-            <div className="w-1/2 px-2">
+        {/* Charts and Bulk Upload (Full width on mobile, 50% width on larger screens) */}
+        <div className="w-full sm:w-1/2 px-4 flex flex-col">
+          {/* Charts (75% height on larger screens) */}
+          <div className="flex flex-grow flex-wrap">
+            <div className="w-full sm:w-1/2 px-2">
               <DomainDistributionChart />
             </div>
-            <div className="w-1/2 px-2">
+            <div className="w-full sm:w-1/2 px-2">
               <RecordTypeDistributionChart />
             </div>
           </div>
 
-          {/* Bulk Upload Form (25% height) */}
-          <div className="h-2/4">
+          {/* Bulk Upload Form (25% height on larger screens) */}
+          <div className="w-full sm:h-2/4 mt-4">
             <BulkUploadForm />
           </div>
         </div>
