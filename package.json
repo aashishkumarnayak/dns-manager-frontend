@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "proxy":"https://dns-manager-aws-route-53.netlify.app",
   "private": true,
   "dependencies": {
     "@heroicons/react": "^1.0.6",
